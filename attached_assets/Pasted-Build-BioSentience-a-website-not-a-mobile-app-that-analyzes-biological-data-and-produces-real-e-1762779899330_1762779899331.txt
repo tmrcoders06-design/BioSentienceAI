@@ -1,0 +1,73 @@
+Build BioSentience — a website (not a mobile app) that analyzes biological data and produces real, explainable insights and simulations. This must be an honest, reproducible system using real ML models and real data (no fake logic, no hardcoded responses).
+
+Core goals
+
+Accept CSV/text biological data (gene sequences, cell metrics, environmental variables) from users and analyze it with ML.
+
+Produce predictions (health index, mutation risk, adaptation score) and a simulation visualization of how the organism/system may change over time.
+
+Provide an interactive “Explain” panel that shows model reasoning (feature importances, simple SHAP-style explanations).
+
+Must-haves (non-negotiable)
+
+No fake data or rules. All outputs must result from real preprocessing + model inference on uploaded input or validated datasets. If demo data is included, label it clearly and keep the training pipeline reproducible.
+
+Website only. Build a web app (served by Flask or FastAPI); frontend must be HTML/CSS/JS (no native mobile app).
+
+Reproducible training script. Include a train.py that trains a lightweight model on provided sample data and writes a saved model artifact.
+
+Explainability. Return human-readable explanations for predictions (feature contributions, confidence scores).
+
+Simulation mode. Allow users to tweak inputs and run short simulated trajectories (visualized) to see projected effects over time.
+
+Suggested functionality
+
+Upload CSV / paste data → Show parsed preview → Run analysis.
+
+Predictive outputs: numerical score(s) + label.
+
+Confidence + short natural-language summary (“Model predicts X with 86% confidence because Y and Z features are high”).
+
+Interactive simulation slider to change one variable and animate predicted trajectory.
+
+UX / visualization
+
+Futuristic but clear UI (glassmorphism / neon accent optional). Use Chart.js or D3 for charts and Three.js for optional 3D visualization.
+
+Results panel with color-coded risk, explanation box, and download option for report (PDF or JSON).
+
+Tech stack (required)
+
+Backend: Python with Flask or FastAPI
+
+Data & ML: pandas, numpy, scikit-learn (or TensorFlow/PyTorch if neural nets are needed)
+
+Model explainability: SHAP or simple feature-importance code + textual explanation generator
+
+Frontend: HTML / CSS / JavaScript, Chart.js / D3.js, optional Three.js (via CDN)
+
+Packaging: reproducible requirements.txt and a train.py that saves model.pkl or model/ folder
+
+Deliverables
+
+train.py (training pipeline + save model)
+
+app.py or main.py (web server + inference endpoints)
+
+Frontend files (templates/static) that connect to inference API via AJAX/fetch
+
+A README with dataset sources, how to reproduce training, and an explanation of model limitations & license for any datasets used
+
+Notes for the implementer
+
+If using demo data, include the source and make the training reproducible.
+
+Keep models lightweight so they run in Replit or Codespaces.
+
+Prioritize transparency and explainability in all UI text (“This is a model prediction — not medical advice.”).
+
+Build it as a deployable website; do not provide any fake “demo-only” judgments as final outputs.
+
+🛠️ Languages / libs to use (short list)
+
+Python, Flask/FastAPI, pandas, numpy, scikit-learn (or PyTorch/TensorFlow), SHAP (or custom feature-importance), HTML, CSS, JavaSc

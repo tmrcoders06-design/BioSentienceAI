@@ -1,0 +1,103 @@
+{
+  "training_date": "2025-11-10T13:09:24.426292",
+  "dataset_size": 50,
+  "features": [
+    "gene_BRCA1",
+    "gene_TP53",
+    "gene_EGFR",
+    "gene_MYC",
+    "gene_KRAS",
+    "cell_count",
+    "cell_viability",
+    "ph_level",
+    "temperature",
+    "oxygen_level",
+    "glucose_level"
+  ],
+  "models": {
+    "health_index": {
+      "description": "Health Index (overall biological wellness)",
+      "r2_score": 0.9844264374546001,
+      "mse": 0.00029222232760188423,
+      "top_features": [
+        {
+          "name": "gene_KRAS",
+          "importance": 0.1665036610997085
+        },
+        {
+          "name": "gene_EGFR",
+          "importance": 0.1587170404832584
+        },
+        {
+          "name": "gene_TP53",
+          "importance": 0.10259355311544181
+        },
+        {
+          "name": "gene_MYC",
+          "importance": 0.09893911723164141
+        },
+        {
+          "name": "glucose_level",
+          "importance": 0.09236456292742938
+        }
+      ],
+      "model_path": "models/health_index_model.pkl"
+    },
+    "mutation_risk": {
+      "description": "Mutation Risk (genetic instability probability)",
+      "r2_score": 0.9838743216967867,
+      "mse": 0.0002684119153569853,
+      "top_features": [
+        {
+          "name": "gene_EGFR",
+          "importance": 0.17990529275281136
+        },
+        {
+          "name": "gene_KRAS",
+          "importance": 0.17600001297874684
+        },
+        {
+          "name": "gene_MYC",
+          "importance": 0.1181464002503656
+        },
+        {
+          "name": "gene_BRCA1",
+          "importance": 0.09712064831571682
+        },
+        {
+          "name": "cell_viability",
+          "importance": 0.08850190927182609
+        }
+      ],
+      "model_path": "models/mutation_risk_model.pkl"
+    },
+    "adaptation_score": {
+      "description": "Adaptation Score (environmental resilience)",
+      "r2_score": 0.9827571891555354,
+      "mse": 0.00033935576022990583,
+      "top_features": [
+        {
+          "name": "gene_EGFR",
+          "importance": 0.2010271272388074
+        },
+        {
+          "name": "gene_KRAS",
+          "importance": 0.1809787673261959
+        },
+        {
+          "name": "gene_MYC",
+          "importance": 0.11419565417045546
+        },
+        {
+          "name": "gene_TP53",
+          "importance": 0.0895676604787316
+        },
+        {
+          "name": "oxygen_level",
+          "importance": 0.0779426408160006
+        }
+      ],
+      "model_path": "models/adaptation_score_model.pkl"
+    }
+  }
+}

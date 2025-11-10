@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSentience - Biological Data Analysis Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <header>
+            <h1 class="logo">
+                <span class="bio">Bio</span><span class="sentience">Sentience</span>
+            </h1>
+            <p class="tagline">Advanced Biological Data Analysis & Simulation</p>
+        </header>
+
+        <div class="disclaimer">
+            ⚠️ Research Tool Only - Model predictions for scientific analysis, not medical advice
+        </div>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <section class="glass-panel upload-section">
+                <h2>📊 Data Input</h2>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept=".csv" hidden>
+                    <div class="upload-prompt">
+                        <div class="upload-icon">📁</div>
+                        <p>Click or drag CSV file here</p>
+                        <small>Biological data with gene expression, cell metrics, environmental variables</small>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="useSampleBtn">Use Sample Data</button>
+                
+                <div id="previewSection" class="hidden">
+                    <h3>Data Preview</h3>
+                    <div id="dataPreview" class="data-table-container"></div>
+                    <button class="btn btn-primary" id="analyzeBtn">Analyze Data</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="glass-panel results-section hidden" id="resultsSection">
+                <h2>🔬 Analysis Results</h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card health">
+                        <h3>Health Index</h3>
+                        <div class="metric-value" id="healthValue">-</div>
+                        <div class="confidence">Confidence: <span id="healthConfidence">-</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" id="healthBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card risk">
+                        <h3>Mutation Risk</h3>
+                        <div class="metric-value" id="riskValue">-</div>
+                        <div class="confidence">Confidence: <span id="riskConfidence">-</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" id="riskBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card adaptation">
+                        <h3>Adaptation Score</h3>
+                        <div class="metric-value" id="adaptationValue">-</div>
+                        <div class="confidence">Confidence: <span id="adaptationConfidence">-</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" id="adaptationBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explanation-panel">
+                    <h3>💡 Explanation</h3>
+                    <p id="explanationSummary" class="explanation-text"></p>
+                    
+                    <div class="feature-importance">
+                        <h4>Key Factors</h4>
+                        <div id="featureList" class="feature-list"></div>
+                    </div>
+                </div>
+
+                <button class="btn btn-accent" id="downloadBtn">Download Report (JSON)</button>
+            </section>
+
+            <!-- Simulation Section -->
+            <section class="glass-panel simulation-section hidden" id="simulationSection">
+                <h2>🧬 Interactive Simulation</h2>
+                <p class="section-description">Adjust biological parameters to see projected outcomes over time</p>
+                
+                <div class="simulation-controls">
+                    <label for="varyFeature">Vary Parameter:</label>
+                    <select id="varyFeature" class="input-select">
+                        <option value="">Select a feature...</option>
+                    </select>
+                    
+                    <label for="variationRange">Variation Range: ±<span id="rangeDisplay">30</span>%</label>
+                    <input type="range" id="variationRange" min="10" max="50" value="30" class="slider">
+                    
+                    <button class="btn btn-primary" id="runSimBtn">Run Simulation</button>
+                </div>
+
+                <div id="simulationResults" class="hidden">
+                    <div class="chart-container">
+                        <canvas id="simulationChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>BioSentience v1.0 | Powered by Random Forest ML Models | 
+                <a href="https://github.com" target="_blank">View Source</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
